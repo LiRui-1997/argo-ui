@@ -16,10 +16,12 @@ export function isActiveRoute(locationPath: string, path: string) {
     return locationPath === path || locationPath.startsWith(`${path}/`);
 }
 
+const state='none'
+
 export const NavBar: React.StatelessComponent<NavBarProps> = (props: NavBarProps, context: AppContext) => {
     const locationPath = context.router.route.location.pathname;
     return (
-        <div className='nav-bar'>
+        <div className='nav-bar' style={{display:state}}>
         <div className='nav-bar__logo'>
             <img src='assets/images/logo.png' alt='Argo'/>
             <div className='nav-bar__version'>{props.version && props.version()}</div>
